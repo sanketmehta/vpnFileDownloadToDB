@@ -16,9 +16,9 @@ from datetime import datetime
 sched = BlockingScheduler()
 
 
-@sched.scheduled_job('interval', minutes=60)
+@sched.scheduled_job('interval', minutes=5)
 def timed_job():
-    print('This job is run every 60 minutes.')
+    print('This job is run every 5 minutes.')
 
     chromeOptions = webdriver.ChromeOptions()
     downloadDir = os.environ['DOWNLOAD_DIRECTORY']
