@@ -22,6 +22,7 @@ def timed_job():
 
     chromeOptions = webdriver.ChromeOptions()
     chromeOptions.binary_location = os.environ['GOOGLE_CHROME_BIN']
+    chromeOptions.add_argument('--headless')
     downloadDir = os.environ['DOWNLOAD_DIRECTORY']
     prefs = {"download.default_directory" : downloadDir}
     chromeOptions.add_experimental_option("prefs",prefs)
