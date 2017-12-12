@@ -21,10 +21,11 @@ def timed_job():
     print('This job is run every 5 minutes.')
 
     chromeOptions = webdriver.ChromeOptions()
+    chromeOptions.binary_location = os.environ['GOOGLE_CHROME_BIN']
     downloadDir = os.environ['DOWNLOAD_DIRECTORY']
     prefs = {"download.default_directory" : downloadDir}
     chromeOptions.add_experimental_option("prefs",prefs)
-    wd = webdriver.Chrome(chrome_options=chromeOptions)
+    wd = webdriver.Chrome(executable_path=os.environ['CHROMEDRIVER_PATH'], chrome_options=chromeOptions)
 
     wd.get('https://thatoneprivacysite.net/vpn-comparison-chart/')
     html_page = wd.page_source
